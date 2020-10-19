@@ -14,6 +14,8 @@ class _GetStartedState extends State<GetStarted> {
   Widget build(BuildContext context) {
     double myHeight = MediaQuery.of(context).size.height / 3;
     return Scaffold(
+
+      backgroundColor: Colors.black,
       body: Container(
         child: Column(
           children: [
@@ -29,9 +31,9 @@ class _GetStartedState extends State<GetStarted> {
               height: myHeight,
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.only(
-                      topRight: Radius.circular(20),
-                      topLeft: Radius.circular(20)),
-                  color: Colors.red[900],
+                      topRight: Radius.circular(40),
+                      topLeft: Radius.circular(40)),
+                  color: Colors.black,
                   boxShadow: [
                     BoxShadow(
                       color: Colors.grey.withOpacity(0.5),

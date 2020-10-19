@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:jumbo/home/home.dart';
 
 class Register extends StatefulWidget {
   @override
@@ -151,7 +152,10 @@ class _RegisterState extends State<Register> {
                           ),
                         ),
                       MaterialButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.of(context).push(
+                              MaterialPageRoute(builder: (context) => Home()));
+                        },
                         child: Container(
                           width: MediaQuery.of(context).size.width,
                           alignment: Alignment.center,

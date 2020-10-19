@@ -14,7 +14,7 @@ class _TipsState extends State<Tips> {
     {
       'title': 'عشان تكبر جامبو كل ساندوتش جامبو',
       'info': 'ساندوتش جامبو كبير وبيشبع',
-      'image': 'images/3.jpeg'
+      'image': 'images/3.jpg'
     },
     {
       'title': 'ساندوتش جامبو متقدرش تستغني عنه',
@@ -79,7 +79,10 @@ class _TipsState extends State<Tips> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       MaterialButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => Register()));
+                        },
                         child: Container(
                           alignment: Alignment.center,
                           width: MediaQuery.of(context).size.width,
