@@ -13,19 +13,19 @@ class _ShoppingState extends State<Shopping> {
       'extra_id': '1',
       'extraName': 'باكيت بطاطس',
       'extraPrice': '10',
-      'extraImage': 'images/21.jpg'
+      'extraImage': 'images/21.jpg',
     },
     {
       'extra_id': '2',
       'extraName': 'كولسلو',
       'extraPrice': '10',
-      'extraImage': 'images/20.jpg'
+      'extraImage': 'images/20.jpg',
     },
     {
       'extra_id': '3',
       'extraName': 'صوص جامبو',
       'extraPrice': '7',
-      'extraImage': 'images/26.jpg'
+      'extraImage': 'images/26.jpg',
     },
   ];
   List extraDrinks = [
@@ -33,13 +33,13 @@ class _ShoppingState extends State<Shopping> {
       'extra_id': '4',
       'extraName': 'كانز',
       'extraPrice': '10',
-      'extraImage': 'images/25.png'
+      'extraImage': 'images/25.png',
     },
     {
       'extra_id': '5',
       'extraName': 'عصير ليمون نعناع',
       'extraPrice': '10',
-      'extraImage': 'images/24.jpg'
+      'extraImage': 'images/24.jpg',
     },
   ];
   List extra = [
@@ -47,28 +47,34 @@ class _ShoppingState extends State<Shopping> {
       'extra_id': '6',
       'extraName': 'جبنه موتزريلا',
       'extraPrice': '10',
-      'extraImage': 'images/23.jpeg'
+      'extraImage': 'images/23.jpeg',
     },
     {
       'extra_id': '7',
       'extraName': 'صوص شيدر',
       'extraPrice': '10',
-      'extraImage': 'images/22.jpg'
+      'extraImage': 'images/22.jpg',
     },
   ];
   Widget extraorder(List list) {
     return Container(
-      height: MediaQuery.of(context).size.height * 0.2,
+      height: MediaQuery.of(context).size.height * 0.19,
       width: MediaQuery.of(context).size.width,
       child: ListView.builder(
-        
         primary: false,
         //  shrinkWrap: true,
         itemCount: list.length,
         itemBuilder: (context, i) {
           return ListTile(
-            title: Text(list[i]['extraName']),
-            subtitle: Text(list[i]['extraPrice']),
+            title: Text(
+              list[i]['extraName'],
+              style:
+                  TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
+            ),
+            subtitle: Text(
+              '${list[i]['extraPrice']} ج',
+              style: TextStyle(color: Colors.grey),
+            ),
             leading: CircleAvatar(
               radius: 25,
               backgroundImage: AssetImage(list[i]['extraImage']),
@@ -109,68 +115,71 @@ class _ShoppingState extends State<Shopping> {
   }
 
   Widget buttonBuild() {
-    return Padding(
-      padding: const EdgeInsets.only(left: 18.0),
-      child: Container(
-        height: MediaQuery.of(context).size.height * 0.04,
-        width: MediaQuery.of(context).size.width * 0.3,
-        child:
-            Row(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
-          Container(
-            decoration: BoxDecoration(boxShadow: [
-              BoxShadow(
-                  blurRadius: 1,
-                  color: Colors.grey[100],
-                  offset: Offset(0, 1),
-                  spreadRadius: 1),
-            ], color: Colors.red, borderRadius: BorderRadius.circular(10)),
-            child: IconButton(
-              iconSize: 16,
-              icon: FaIcon(
-                FontAwesomeIcons.plus,
-                color: Colors.white,
-              ),
-              onPressed: () {
-                setState(() {
-                  total += 1;
-                });
-              },
+    return Container(
+      height: MediaQuery.of(context).size.height * 0.04,
+      width: MediaQuery.of(context).size.width * 0.33,
+      child:
+          Row(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
+        Container(
+          decoration: BoxDecoration(boxShadow: [
+            BoxShadow(
+                blurRadius: 1,
+                color: Colors.grey[100],
+                offset: Offset(0, 1),
+                spreadRadius: 1),
+          ], color: Colors.red, borderRadius: BorderRadius.circular(10)),
+          child: IconButton(
+            iconSize: 16,
+            icon: FaIcon(
+              FontAwesomeIcons.plus,
+              color: Colors.white,
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(5.0),
-            child: Text(
-              '$total',
-              style: TextStyle(color: Colors.black, fontSize: 19),
-            ),
-          ),
-          Container(
-            decoration: BoxDecoration(boxShadow: [
-              BoxShadow(
-                  blurRadius: 1,
-                  color: Colors.grey[100],
-                  offset: Offset(0, 1),
-                  spreadRadius: 1),
-            ], color: Colors.red, borderRadius: BorderRadius.circular(10)),
-            child: IconButton(
-              iconSize: 16,
-              icon: FaIcon(
-                FontAwesomeIcons.minus,
-                color: Colors.white,
-              ),
-              onPressed: () {
-                if (total <= 0) {
+            onPressed: () {
+              setState(() {
+                if (total >= 99) {
                   return;
                 } else {
                   setState(() {
-                    total -= 1;
+                    total += 1;
                   });
                 }
-              },
-            ),
+              });
+            },
           ),
-        ]),
-      ),
+        ),
+        Padding(
+          padding: const EdgeInsets.all(5.0),
+          child: Text(
+            '$total',
+            style: TextStyle(color: Colors.black, fontSize: 19),
+          ),
+        ),
+        Container(
+          decoration: BoxDecoration(boxShadow: [
+            BoxShadow(
+                blurRadius: 1,
+                color: Colors.grey[100],
+                offset: Offset(0, 1),
+                spreadRadius: 1),
+          ], color: Colors.red, borderRadius: BorderRadius.circular(10)),
+          child: IconButton(
+            iconSize: 16,
+            icon: FaIcon(
+              FontAwesomeIcons.minus,
+              color: Colors.white,
+            ),
+            onPressed: () {
+              if (total <= 0) {
+                return;
+              } else {
+                setState(() {
+                  total -= 1;
+                });
+              }
+            },
+          ),
+        ),
+      ]),
     );
   }
 
