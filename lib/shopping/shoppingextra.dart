@@ -76,7 +76,7 @@ class _ShoppingState extends State<Shopping> {
     );
   }
 
-  int total = 0;
+ 
   Widget headerBuild() {
     return Directionality(
       textDirection: TextDirection.rtl,
@@ -104,74 +104,6 @@ class _ShoppingState extends State<Shopping> {
     );
   }
 
-  Widget buttonBuild() {
-    return Container(
-      height: MediaQuery.of(context).size.height * 0.04,
-      width: MediaQuery.of(context).size.width * 0.33,
-      child:
-          Row(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
-        Container(
-          decoration: BoxDecoration(boxShadow: [
-            BoxShadow(
-                blurRadius: 1,
-                color: Colors.grey[100],
-                offset: Offset(0, 1),
-                spreadRadius: 1),
-          ], color: Colors.red, borderRadius: BorderRadius.circular(10)),
-          child: IconButton(
-            iconSize: 16,
-            icon: FaIcon(
-              FontAwesomeIcons.plus,
-              color: Colors.white,
-            ),
-            onPressed: () {
-              setState(() {
-                if (total >= 99) {
-                  return;
-                } else {
-                  setState(() {
-                    total += 1;
-                  });
-                }
-              });
-            },
-          ),
-        ),
-        Padding(
-          padding: const EdgeInsets.all(5.0),
-          child: Text(
-            '$total',
-            style: TextStyle(color: Colors.black, fontSize: 19),
-          ),
-        ),
-        Container(
-          decoration: BoxDecoration(boxShadow: [
-            BoxShadow(
-                blurRadius: 1,
-                color: Colors.grey[100],
-                offset: Offset(0, 1),
-                spreadRadius: 1),
-          ], color: Colors.red, borderRadius: BorderRadius.circular(10)),
-          child: IconButton(
-            iconSize: 16,
-            icon: FaIcon(
-              FontAwesomeIcons.minus,
-              color: Colors.white,
-            ),
-            onPressed: () {
-              if (total <= 0) {
-                return;
-              } else {
-                setState(() {
-                  total -= 1;
-                });
-              }
-            },
-          ),
-        ),
-      ]),
-    );
-  }
 
   @override
   Widget build(BuildContext context) {
