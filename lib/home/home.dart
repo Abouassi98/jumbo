@@ -150,9 +150,8 @@ class _HomeState extends State<Home> {
                 ),
               ),
               Expanded(
-                              child: Container(
+                child: Container(
                   width: MediaQuery.of(context).size.width,
-                  
                   child: ListView.builder(
                     itemCount: products.length,
                     itemBuilder: (BuildContext context, i) {
@@ -216,8 +215,8 @@ class SingleProduct extends StatelessWidget {
                 )));
       },
       child: Hero(
-        tag:prodId ,
-              child: Container(
+        tag: prodId,
+        child: Container(
           padding: EdgeInsets.all(10),
           child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -293,7 +292,7 @@ class SingleCategory extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(right: 8.0,top: 6.0),
+              padding: const EdgeInsets.only(right: 8.0, top: 6.0),
               child: Text(
                 catName,
                 textDirection: TextDirection.rtl,

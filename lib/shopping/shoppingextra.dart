@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import '../widgets/menu_extra.dart';
 
 class Shopping extends StatefulWidget {
   @override
@@ -65,21 +66,10 @@ class _ShoppingState extends State<Shopping> {
         //  shrinkWrap: true,
         itemCount: list.length,
         itemBuilder: (context, i) {
-          return ListTile(
-            title: Text(
-              list[i]['extraName'],
-              style:
-                  TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
-            ),
-            subtitle: Text(
-              '${list[i]['extraPrice']} ج',
-              style: TextStyle(color: Colors.grey),
-            ),
-            leading: CircleAvatar(
-              radius: 25,
-              backgroundImage: AssetImage(list[i]['extraImage']),
-            ),
-            trailing: buttonBuild(),
+          return MenuItem(
+            extraName: list[i]['extraName'],
+            extraImage: list[i]['extraImage'],
+            extraPrice: list[i]['extraPrice'],
           );
         },
       ),
