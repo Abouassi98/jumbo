@@ -214,15 +214,15 @@ class SingleProduct extends StatelessWidget {
                   prodimage: prodimage,
                 )));
       },
-      child: Hero(
-        tag: prodId,
-        child: Container(
-          padding: EdgeInsets.all(10),
-          child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: <Widget>[
-                FittedBox(
+      child: Container(
+        padding: EdgeInsets.all(10),
+        child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: <Widget>[
+              Hero(
+                tag: prodId,
+                child: FittedBox(
                   child: Container(
                     width: MediaQuery.of(context).size.width,
                     height: MediaQuery.of(context).size.height * 0.3,
@@ -236,19 +236,19 @@ class SingleProduct extends StatelessWidget {
                     ),
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 8.0, bottom: 8.0),
-                  child: Text(
-                    prodname,
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                  ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 8.0, bottom: 8.0),
+                child: Text(
+                  prodname,
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                 ),
-                Text(
-                  prodDesc,
-                  style: TextStyle(color: Colors.grey),
-                ),
-              ]),
-        ),
+              ),
+              Text(
+                prodDesc,
+                style: TextStyle(color: Colors.grey),
+              ),
+            ]),
       ),
     );
   }

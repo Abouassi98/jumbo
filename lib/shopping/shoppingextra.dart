@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import '../widgets/menu_extra.dart';
+import '../widgets/extraorder.dart';
 
 class Shopping extends StatefulWidget {
   @override
@@ -59,7 +59,7 @@ class _ShoppingState extends State<Shopping> {
   ];
   Widget extraorder(List list) {
     return Container(
-      height: MediaQuery.of(context).size.height * 0.19,
+      height: MediaQuery.of(context).size.height * 0.25,
       width: MediaQuery.of(context).size.width,
       child: ListView.builder(
         primary: false,
@@ -76,7 +76,6 @@ class _ShoppingState extends State<Shopping> {
     );
   }
 
- 
   Widget headerBuild() {
     return Directionality(
       textDirection: TextDirection.rtl,
@@ -104,111 +103,149 @@ class _ShoppingState extends State<Shopping> {
     );
   }
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey[50],
       body: SafeArea(
         child: Directionality(
           textDirection: TextDirection.rtl,
-          child: ListView(
-            primary: false,
-            //  shrinkWrap: true,
-            children: [
-              headerBuild(),
-              Text(
-                'المقبلات',
-                style: TextStyle(
-                    fontSize: 30,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.red[400]),
-                textAlign: TextAlign.center,
+          child: Stack(children: [
+            Container(
+              height: MediaQuery.of(context).size.height * 0.7,
+              child: ListView(
+                primary: false,
+                //  shrinkWrap: true,
+                children: [
+                  Text(
+                    'المقبلات',
+                    style: TextStyle(
+                        fontSize: 30,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.red[400]),
+                    textAlign: TextAlign.center,
+                  ),
+                  extraorder(extraMoqblat),
+                  Text(
+                    'المشروبات',
+                    style: TextStyle(
+                        fontSize: 30,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.red[500]),
+                    textAlign: TextAlign.center,
+                  ),
+                  extraorder(extraDrinks),
+                  Text(
+                    "اضافات",
+                    style: TextStyle(
+                        fontSize: 30,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.red[600]),
+                    textAlign: TextAlign.center,
+                  ),
+                  extraorder(extra),
+                ],
               ),
-              extraorder(extraMoqblat),
-              Text(
-                'المشروبات',
-                style: TextStyle(
-                    fontSize: 30,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.red[500]),
-                textAlign: TextAlign.center,
-              ),
-              extraorder(extraDrinks),
-              Text(
-                "اضافات",
-                style: TextStyle(
-                    fontSize: 30,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.red[600]),
-                textAlign: TextAlign.center,
-              ),
-              extraorder(extra),
-            ],
-          ),
+            ),
+            Positioned(
+                height: 70, left: 0, right: 0, top: 0, child: headerBuild()),
+          ]),
         ),
       ),
       bottomNavigationBar: Container(
-        padding: EdgeInsets.only(left: 50, right: 30),
-        child: Row(
-          children: [
-            Text(
-              "1000",
-              style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold),
+        height: MediaQuery.of(context).size.height*0.29,
+        child: Column(children: [
+          Card(
+            child: Container(
+              padding: EdgeInsets.all(5),
+              child: Column(children: <Widget>[
+                Row(
+                  children: [
+                    Text('اجمالي المبلغ'),
+                    Expanded(
+                      child: Text(''),
+                    ),
+                    Text('100'),
+                  ],
+                ),
+                Divider(
+                  color: Colors.black,
+                ),
+                Row(
+                  children: [
+                    Text('دليفري'),
+                    Expanded(
+                      child: Text(''),
+                    ),
+                    Text('100'),
+                  ],
+                ),
+                  Divider(
+                  color: Colors.black,
+                ),
+                Row(
+                  children: [
+                    Text('الاجمالي الكلي'),
+                    Expanded(
+                      child: Text(''),
+                    ),
+                    Text('100'),
+                  ],
+                ),
+              ]),
             ),
-            Padding(padding: EdgeInsets.all(2)),
-            Text(
-              "المجموع",
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 20,
-              ),
-            ),
-            Expanded(
-              child: Text(" "),
-            ),
-            GestureDetector(
-              onTap: () {},
-              child: Row(children: [
-                Text(
+          ),
+          Container(
+            margin: EdgeInsets.only(bottom: 5),
+            alignment: Alignment.center,
+            padding: EdgeInsets.only(left: 50, right: 30),
+            child: Column(children: <Widget>[
+              GestureDetector(
+                onTap: () {},
+                child: Text(
                   "اضافة الي السلة",
                   style: TextStyle(
                     color: Colors.white,
-                    fontSize: 24,
-                    //fontWeight: FontWeight.bold,
+                    fontSize: 20,
                   ),
                 ),
-                Padding(padding: EdgeInsets.all(2)),
-                Icon(
-                  Icons.shopping_cart,
-                  color: Colors.white,
-                )
-              ]),
-            ),
-          ],
-        ),
-        height: 75.0,
-        decoration: BoxDecoration(
-            boxShadow: [
+              ),
+            ]),
+            height: 40.0,
+            decoration: BoxDecoration(boxShadow: [
               BoxShadow(
                   blurRadius: 7,
                   color: Colors.grey[100],
                   offset: Offset(0, 3),
                   spreadRadius: 4),
-            ],
-            //color: Colors.red[300],
-            gradient: LinearGradient(
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-                colors: <Color>[
-                  Colors.red,
-                  Colors.red[300],
-                  Colors.red[300],
-                  Colors.red,
-                ]),
-            borderRadius: BorderRadius.circular(40)),
+            ], color: Colors.red, borderRadius: BorderRadius.circular(40)),
+          ),
+          Container(
+            margin: EdgeInsets.only(bottom: 5),
+            alignment: Alignment.center,
+            padding: EdgeInsets.only(left: 50, right: 30),
+            child: Column(children: <Widget>[
+              GestureDetector(
+                onTap: () {},
+                child: Text(
+                  "تاكيد الطلبيه",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 20,
+                  ),
+                ),
+              ),
+            ]),
+            height: 40.0,
+            decoration: BoxDecoration(boxShadow: [
+              BoxShadow(
+                  blurRadius: 7,
+                  color: Colors.grey[100],
+                  offset: Offset(0, 3),
+                  spreadRadius: 4),
+            ], color: Colors.red, borderRadius: BorderRadius.circular(40)),
+          ),
+        ]),
       ),
     );
   }
