@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:jumbo/product/subcategory.dart';
+import 'package:jumbo/pages/product/subcategory.dart';
 
 class Category extends StatefulWidget {
   @override

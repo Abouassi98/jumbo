@@ -1,7 +1,7 @@
 
 
 import 'package:flutter/material.dart';
-import 'package:jumbo/pages/configs.dart';
+
 import 'package:jumbo/pages/tips/tips.dart';
 
 class GetStarted extends StatefulWidget {

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:jumbo/shopping/shoppingextra.dart';
+import 'package:jumbo/pages/shopping/shoppingextra.dart';
 
 class ProductDetail extends StatefulWidget {
   final String prodName;

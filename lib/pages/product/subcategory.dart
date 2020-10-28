@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:jumbo/pages/product/product.dart';
 
 class SubCategory extends StatefulWidget {
   final String title;
   final String id;
-  SubCategory({this.title,this.id});
+  SubCategory({this.title, this.id});
   @override
   _SubCategoryState createState() => _SubCategoryState();
 }
@@ -85,7 +86,7 @@ class _SubCategoryState extends State<SubCategory> {
         ),
       ),
       body: Container(
-        margin: EdgeInsets.only(top:10),
+        margin: EdgeInsets.only(top: 10),
         child: ListView.builder(
           itemCount: category.length,
           itemBuilder: (BuildContext context, i) {
@@ -112,39 +113,45 @@ class SingleSubCategory extends StatelessWidget {
   Widget build(BuildContext context) {
     return Directionality(
       textDirection: TextDirection.rtl,
-      child: Card(
-        child: ListTile(
-          leading: FittedBox(
-            child: Container(
-              height: MediaQuery.of(context).size.height * 0.1,
-              width: MediaQuery.of(context).size.height * 0.1,
-              //padding: EdgeInsets.only(right: 30),
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                    fit: BoxFit.cover,
-                    image: AssetImage(
-                      catImage,
-                    )),
-                borderRadius: BorderRadius.circular(25),
+      child: InkWell(
+        onTap: () {
+          Navigator.of(context)
+              .push(MaterialPageRoute(builder: (context) => Product()));
+        },
+        child: Card(
+          child: ListTile(
+            leading: FittedBox(
+              child: Container(
+                height: MediaQuery.of(context).size.height * 0.1,
+                width: MediaQuery.of(context).size.height * 0.1,
+                //padding: EdgeInsets.only(right: 30),
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                      fit: BoxFit.cover,
+                      image: AssetImage(
+                        catImage,
+                      )),
+                  borderRadius: BorderRadius.circular(25),
+                ),
               ),
             ),
-          ),
-          title: Text(
-            catName,
-            textDirection: TextDirection.rtl,
-            style: TextStyle(
-              color: Colors.black,
-              fontWeight: FontWeight.bold,
+            title: Text(
+              catName,
+              textDirection: TextDirection.rtl,
+              style: TextStyle(
+                color: Colors.black,
+                fontWeight: FontWeight.bold,
+              ),
             ),
-          ),
-          subtitle: Text(
-            catCount,
-            textDirection: TextDirection.rtl,
-            style: TextStyle(
-              color: Colors.grey,
+            subtitle: Text(
+              catCount,
+              textDirection: TextDirection.rtl,
+              style: TextStyle(
+                color: Colors.grey,
+              ),
             ),
+            trailing: Icon(Icons.arrow_forward_ios),
           ),
-          trailing: Icon(Icons.arrow_forward_ios),
         ),
       ),
     );

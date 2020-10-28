@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import '../widgets/extraorder.dart';
+
+import 'package:jumbo/widgets/extraorder.dart';
 
 class Shopping extends StatefulWidget {
   @override
@@ -8,7 +8,7 @@ class Shopping extends StatefulWidget {
 }
 
 class _ShoppingState extends State<Shopping> {
-  GlobalKey<ScaffoldState> _key = GlobalKey<ScaffoldState>();
+  //GlobalKey<ScaffoldState> _key = GlobalKey<ScaffoldState>();
   List extraMoqblat = [
     {
       'extra_id': '1',

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:jumbo/home/home.dart';
+import 'package:jumbo/pages/home/home.dart';
 
 class Register extends StatefulWidget {
   @override
@@ -7,6 +7,7 @@ class Register extends StatefulWidget {
 }
 
 class _RegisterState extends State<Register> {
+  final GlobalKey<FormState> _key = GlobalKey();
   Widget formField({String text, Function function}) {
     return Container(
       margin: EdgeInsets.only(bottom: 10),
@@ -18,6 +19,16 @@ class _RegisterState extends State<Register> {
         validator: function,
       ),
     );
+  }
+
+  _submit() {
+    if (!_key.currentState.validate()) {
+      return;
+    } else {
+      _key.currentState.save();
+      Navigator.of(context)
+          .push(MaterialPageRoute(builder: (context) => Home()));
+    }
   }
 
   bool _login = false;
@@ -36,6 +47,11 @@ class _RegisterState extends State<Register> {
           ),
           onPressed: () {
             if (_forgetPassword == true) {
+              setState(() {
+                _forgetPassword = false;
+                _login = true;
+              });
+            } else if ((_forgetPassword == false) && (_login == true)) {
               setState(() {
                 _forgetPassword = false;
                 _login = false;
@@ -152,10 +168,7 @@ class _RegisterState extends State<Register> {
                           ),
                         ),
                       MaterialButton(
-                        onPressed: () {
-                          Navigator.of(context).push(
-                              MaterialPageRoute(builder: (context) => Home()));
-                        },
+                        onPressed: _submit,
                         child: Container(
                           width: MediaQuery.of(context).size.width,
                           alignment: Alignment.center,

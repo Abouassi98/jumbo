@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:jumbo/account/myprofile.dart';
-import 'package:jumbo/product/category.dart';
+import 'package:jumbo/pages/account/myprofile.dart';
+import 'package:jumbo/pages/favourite/favourite.dart';
+import 'package:jumbo/pages/product/category.dart';
 
 class Mydrawrer extends StatefulWidget {
   @override
@@ -72,6 +73,7 @@ class _MydrawrerState extends State<Mydrawrer> {
               drawerIcon(
                   text: 'قائمه الماكولات',
                   func: () {
+
                     Navigator.of(context).push(MaterialPageRoute(builder: (context)=>Category()));
                   },
                   icon: Icons.restaurant),
@@ -104,7 +106,9 @@ class _MydrawrerState extends State<Mydrawrer> {
                   ],
                 ),
               ),
-              drawerIcon(text: 'مفضلاتي', func: () {}, icon: Icons.favorite),
+              drawerIcon(text: 'مفضلاتي', func: () {
+                  Navigator.of(context).push(MaterialPageRoute(builder: (context)=>Fvourite()));
+              }, icon: Icons.favorite),
               drawerIcon(text: 'طلباتي', func: () {}, icon: Icons.history),
               drawerIcon(text: 'من نحن', func: () {}, icon: Icons.message),
               drawerIcon(text: 'مركو الدعم', func: () {}, icon: Icons.call),

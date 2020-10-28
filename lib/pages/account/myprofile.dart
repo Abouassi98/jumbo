@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:jumbo/home/home.dart';
+import 'package:jumbo/pages/home/home.dart';
 
 class MyProfile extends StatefulWidget {
   final bool changePassword;

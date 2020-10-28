@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:jumbo/account/register.dart';
-import '../configs.dart';
+import 'package:jumbo/pages/account/register.dart';
+
 import 'package:page_indicator/page_indicator.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 

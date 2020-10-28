@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:jumbo/drawer/mydrawer.dart';
-import 'package:jumbo/product/product_detail.dart';
+import 'package:jumbo/pages/drawer/mydrawer.dart';
+import 'package:jumbo/pages/product/product_detail.dart';
 
 class Home extends StatefulWidget {
   @override
