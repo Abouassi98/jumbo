@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:jumbo/order/tracking.dart';
 import 'package:jumbo/pages/account/myprofile.dart';
 import 'package:jumbo/pages/favourite/favourite.dart';
 import 'package:jumbo/pages/product/category.dart';
@@ -73,8 +74,8 @@ class _MydrawrerState extends State<Mydrawrer> {
               drawerIcon(
                   text: 'قائمه الماكولات',
                   func: () {
-
-                    Navigator.of(context).push(MaterialPageRoute(builder: (context)=>Category()));
+                    Navigator.of(context).push(
+                        MaterialPageRoute(builder: (context) => Category()));
                   },
                   icon: Icons.restaurant),
               Theme(
@@ -106,12 +107,22 @@ class _MydrawrerState extends State<Mydrawrer> {
                   ],
                 ),
               ),
-              drawerIcon(text: 'مفضلاتي', func: () {
-                  Navigator.of(context).push(MaterialPageRoute(builder: (context)=>Fvourite()));
-              }, icon: Icons.favorite),
+              drawerIcon(
+                  text: 'مفضلاتي',
+                  func: () {
+                    Navigator.of(context).push(
+                        MaterialPageRoute(builder: (context) => Fvourite()));
+                  },
+                  icon: Icons.favorite),
               drawerIcon(text: 'طلباتي', func: () {}, icon: Icons.history),
+              drawerIcon(
+                  text: 'تتبع الطلبية',
+                  func: () {
+                         Navigator.of(context).push( MaterialPageRoute(builder: (context) => Tracking()));
+                  },
+                  icon: Icons.drive_eta),
               drawerIcon(text: 'من نحن', func: () {}, icon: Icons.message),
-              drawerIcon(text: 'مركو الدعم', func: () {}, icon: Icons.call),
+              drawerIcon(text: 'مركز الدعم', func: () {}, icon: Icons.call),
             ],
           ),
         ),
